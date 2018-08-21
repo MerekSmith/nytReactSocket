@@ -11,7 +11,6 @@ import RemoveBtn from "../../components/RemoveBtn";
 
 class Articles extends Component {
 
-	// socket.io
 	constructor(props) {
 		super(props);
 		this.state = {

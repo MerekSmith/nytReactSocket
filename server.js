@@ -30,48 +30,24 @@ server.listen(PORT, function () {
 
 
 
+let socket;
 
 
-// io.on('connection', (client) => {
-// 	client.on('subscribeToTimer', (interval) => {
-// 		console.log('timer interval', interval, client.id);
-// 		setInterval(() => {
-// 			client.emit('timer', new Date());
-// 		}, 1000);
-// 	});
-
-// 	client.on('article saved', (article) => {
-// 		io.emit('alert', article);
-// 	});
-
-// });
-
-// const nsp = io.of('/my-namespace');
-// nsp.on('connection', function (socket) {
-// 	console.log('someone connected', socket.id);
-// 	nsp.emit('hi', 'Hello 1a2b3c!: ' + socket.id);
-// 	socket.emit('unique message', socket.id);
-// 	socket.on('disconnect', function () {
-// 		console.log(socket.id + ' disconnected');
-// 	});
-// });
-
-const room2 = io.of('/1a2b3c');
-room2.on('connection', function (socket) {
-	console.log('someone connected', socket.id);
-	room2.emit('hi', 'Hello 1a2b3c!: ' + socket.id);
-	socket.emit('unique message', socket.id);
-	socket.on('disconnect', function () {
-		console.log(socket.id + ' disconnected');
+io.on('connection', (socket) => {
+	socket.on('article saved', (article) => {
+		io.emit('alert', article);
 	});
-});
+	
+	});
 
-// let timer = 30;
-// const intervalId = setInterval(() => {
-// 	if (timer === 0) {
-// 		timer = "Time's Up!!"
-// 		clearInterval(intervalId);
-// 	}
-// 	io.emit('countdown', timer)
-// 	timer--;
-// }, 1000);
+
+
+let timer = 30;
+setInterval(() => {
+	if (timer === 0) {
+		timer = "Time's Up!!"
+		timer = 30;
+	}
+	io.emit('countdown', timer)
+	timer--;
+}, 1000);
