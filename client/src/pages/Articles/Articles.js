@@ -158,14 +158,14 @@ class Articles extends Component {
 							{this.state.articles.map((article, index) => (
 								<ListItem key={index}>
 									{/* <img src={article.web_url + article.multimedia[3].url} /> */}
-									<Link to={article.web_url}>
+									<a href={article.web_url} target="_blank">
 										<strong>
 											Title: {article.headline.main}
 										</strong> <br />
 										Snippet: {article.snippet}
 										<br />
 										Posted Date: {article.pub_date}
-									</Link>
+									</a>
 									<SaveBtn onClick={() => this.handleSave(index)} />
 								</ListItem>
 							))}
