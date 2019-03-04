@@ -5,7 +5,7 @@ export default {
 	searchArticles: function (query) {
 
 		let url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-		let apikey = "?api-key=cd735801b5514e83b927e1bfdcced7af";
+		let apikey = "?api-key=JoEIAyAFe4Fw9QH3Bu7GpOV7LzSpy3BG";
 		let q = "&q=" + query.topic;
 		let begin_date = "&begin_date=" + query.startYear + "0101";
 		let end_date = "&end_date=" + query.endYear + "1231";
